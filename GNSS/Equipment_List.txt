@@ -1,0 +1,4 @@
+GPS	Featherwing	(PA1616D)						https://www.adafruit.com/product/3133
+Adalogger M0									https://exp-tech.de/products/adafruit-feather-m0-adalogger
+GPS Antenna	(Taoglas AA.166.A.301111)			https://www.digikey.de/de/products/detail/taoglas-limited/AA-166-A-301111/9972794
+GPS Cable converter (U.FL Mini PCI SMA Female)	https://www.amazon.de/gp/product/B07TC6Z968/

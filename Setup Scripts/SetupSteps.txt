@@ -1,0 +1,52 @@
+Raspberry Pi Setup
+
+1. Install Raspbian on the Raspberry Pi
+
+2. Enable SSH Access
+
+3. Update the device
+	sudo apt-get update 
+	sudo apt-get dist-upgrade 
+	
+4. Enable FTP access
+	sudo apt install vsftpd
+	sudo nano /etc/vsftpd.conf #Enable ftp writes
+
+6. Install further modules
+	sudo apt-get install autossh libatlas-base-dev python3 python3-pip libopenblas-dev
+	
+7. Install python modules
+	pip3 install pandas numpy pyserial psutil pytz timezonefinder pynmea2 picamera
+
+8. Enable Raspberry Pi Camera
+	sudo raspi-config #Look in the interfaces panel and enable the camera interface
+	
+9. Set up SSH
+	ssh-keygen
+	ssh-copy-id -i ~/.ssh/id_rsa.pub xx@yy #This allows passwordless login for automatic data transfer, update xx@yy with your remote server
+	
+10. Set up reverse tunnel (autossh) for easier login
+	nano autossh_service.service #Add the correct ports and IP addresses here for your system
+	sudo cp autossh_service.service /etc/systemd/system/
+	systemctl daemon-reload
+	systemctl enable autossh_service
+	systemctl start autossh_service
+
+11. Update udev rules for devices
+	#This forces the Pi to always assign the device to the proper tty port for logging
+	sudo cp 49-my.rules /etc/udev/rules.d/
+	#You can check for the serial numbers of your devices like so:
+	udevadm info -a -p $(udevadm info -q path -n /dev/ttyACM0) > serial_number.txt 
+
+12. Enable cron jobs (regular user and sudo)
+	nano cron_job.txt #Add the locations of your server for file transfer and preferred logging directories here
+	crontab cron_job.txt
+	sudo crontab cron_job_sudo.txt
+	
+13. Update station name
+	nano site_name.sh #Update the name of your site so that the data is logged smoothly and transferred smoothly
+	sudo nano .bashrc #ADD source /home/pi/site_name.sh
+
+The Raspberry Pi should now log automatically for any enabled device in 'cron_job.txt' and send that data to whatever server you have defined there!
+
+Logging behaviour for the individual sensors can be changed in their python logging scripts. Data transfer locations can be changed in 'cron_job.txt'. Logging name of the sensor can be changed in site_name.sh.

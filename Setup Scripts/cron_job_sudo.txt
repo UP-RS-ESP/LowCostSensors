@@ -1,0 +1,22 @@
+# sudo crontab -e
+
+SHELL=/bin/bash
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin
+
+# Example of job definition:
+# .---------------- minute (0 - 59)
+# |  .------------- hour (0 - 23)
+# |  |  .---------- day of month (1 - 31)
+# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
+# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+# |  |  |  |  |
+# *  *  *  *  * user-name  command to be executed
+
+#Add a restart once a day for insurance
+1   0   *   *   *    shutdown -r now
+
+#Set the hardware clock to keep it in sync with the more accurate system clock
+5  0   *   *   *    /sbin/hwclock --systohc
+
+#Set system clock from GPS time if no network
+@reboot sleep 10 && source /home/pi/site_name.sh && /usr/bin/python3 /home/pi/setPiClock.py /dev/ttyGPS 115200

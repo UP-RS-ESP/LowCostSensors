@@ -1,0 +1,10 @@
+#udevadm info -a -p $(udevadm info -q path -n /dev/ttyACM0) > 1.txt
+#sudo cp 49-my.rules /etc/udev/rules.d/
+
+#GPS
+KERNEL=="ttyACM[0-9]*", SUBSYSTEM=="tty", ATTRS{serial}=="XXX", SYMLINK="ttyGPS"
+
+#LIDAR 40m
+KERNEL=="ttyACM[0-9]*", SUBSYSTEM=="tty", ATTRS{serial}=="XXX", SYMLINK="ttyLID"
+
+

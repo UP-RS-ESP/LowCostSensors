@@ -1,0 +1,2 @@
+PiCamera v3 (SC1223)				https://www.digikey.de/en/products/detail/raspberry-pi/SC0872/17278639 
+Camera Cable (if using Pi Zero)		https://www.reichelt.de/de/en/shop/product/raspberry_pi_zero_-_flex_cable_for_standard_camera_module_15_cm-223615

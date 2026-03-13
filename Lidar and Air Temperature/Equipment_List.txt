@@ -1,0 +1,3 @@
+Lidar (TF02-Pro LiDAR Sensor)					https://exp-tech.de/products/tf02-pro-lidar-sensor
+Adalogger M0									https://exp-tech.de/products/adafruit-feather-m0-adalogger
+Temperature/Pressure Sensor	(Adafruit BMP388)	https://www.adafruit.com/product/3966

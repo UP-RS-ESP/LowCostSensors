@@ -1,0 +1,14 @@
+[Unit]
+Description=Autossh
+After=network.target
+
+[Service]
+Environment="AUTOSSH_POLL=60"
+ExecStart=autossh -R 11190:localhost:22 -N xx@yy
+WorkingDirectory=/tmp/
+User=pi
+Restart=always
+RestartSec=3s
+
+[Install]
+WantedBy=multi-user.target

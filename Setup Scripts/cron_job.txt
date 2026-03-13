@@ -1,0 +1,26 @@
+# crontab -e
+SHELL=/bin/bash
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin
+
+# Example of job definition:
+# .---------------- minute (0 - 59)
+# |  .------------- hour (0 - 23)
+# |  |  .---------- day of month (1 - 31)
+# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
+# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+# |  |  |  |  |
+# *  *  *  *  * user-name  command to be executed
+
+#Basic Logging codes
+@reboot sleep 15 && source /home/pi/site_name.sh && /usr/bin/python3 /home/pi/Log_Lidar.py /dev/ttyLID ${SITE} /home/pi/${SITE}/LIDAR/
+@reboot sleep 15 && source /home/pi/site_name.sh && /usr/bin/python3 /home/pi/Log_Thermal.py /dev/ttyTHE ${SITE} /home/pi/${SITE}/THERMAL/
+
+#Longer sleep for GNSS to give the clock reset script time to run
+@reboot sleep 120 && source /home/pi/site_name.sh && /usr/bin/python3 /home/pi/Log_GNSS.py /dev/ttyGPS ${SITE} /home/pi/${SITE}/GNSS/
+
+#Ship to VM Server -- Only send compressed data, any partial files are left there and could be accessed manually
+*/15 * * * * source /home/pi/site_name.sh && rsync -av --remove-source-files --exclude '*.csv' --timeout=120 /home/pi/${SITE}/LIDAR/ xx@yy:/home/${SITE}/LIDAR/
+
+#Camera logging
+#@reboot sleep 15 && source /home/pi/site_name.sh && /usr/bin/python3 /home/pi/Log_Camera.py  ${SITE} /home/pi/${SITE}/IMAGES/
+#*/15 * * * * source /home/pi/site_name.sh && rsync -av --remove-source-files --exclude '*_hr.jpg' --timeout=120 /home/pi/${SITE}/IMAGES/ xx@yy:/home/${SITE}/IMAGES/

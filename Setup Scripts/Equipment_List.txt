@@ -1,0 +1,24 @@
+Raspberry Pi 3B				https://www.digikey.de/de/products/detail/raspberry-pi/SC0073/8571724
+OR
+Raspberry Pi Zero			https://www.digikey.de/de/products/detail/raspberry-pi/SC0020/18150025
+Powered USB Hub	12			https://www.amazon.de/LogiLink-4-Port-Hub-Netzteil-schwarz/dp/B003ECC6O4/
+
+STORAGE:
+SD Card, 256GB				https://www.amazon.de/SanDisk-microSDXC-Speicherkarte-Smartphones-Lesegeschwindigkeit/dp/B0B7NV73PJ/
+
+POWER:
+Buck Converter, 12V-5V	(for battery or solar power)	https://www.amazon.de/Power-Modul-DC-DC-Netzteil-Konverter/dp/B071ZRXKJY
+Power Supply, 5V		(for wall power)				https://www.distrelec.de/en/usb-power-supply-for-raspberry-pi-5vdc-5a-13w-raspberry-pi-t5875dv/p/30134464
+			
+
+DATA TRANSFER:
+SIM Adapter (USB is easiest) - Huawei E3372-325 4G LTE or equivalent
+
+USB Cables (diverse, depending on setup)
+Mounting (e.g., metal pole, screw mount, waterproof box)
+Wiring (small wire for Arduino sensors, larger for running power)
+
+OPTIONAL:
+Solar backup
+Battery backup
+Power stabilization

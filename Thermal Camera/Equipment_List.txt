@@ -1,0 +1,2 @@
+Thermal Camera (MLX90640)			https://www.adafruit.com/product/4407
+Adalogger M0						https://exp-tech.de/products/adafruit-feather-m0-adalogger
