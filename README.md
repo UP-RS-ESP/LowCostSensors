@@ -1,6 +1,6 @@
 # LowCostSensors
 
-Basic design and implementation of low-cost environmental logging using Raspberry Pi and Arduino. Implemented during the DFG STRIVE project (PI: [Dr Taylor Smith](tasmi.github.io)). 
+Basic design and implementation of low-cost environmental logging using Raspberry Pi and Arduino. Implemented during the DFG STRIVE project (PI: [Dr Taylor Smith](https://tasmi.github.io/)). 
 
 
 Each folder contains details around one specific sensor -- some sensors included multiple instruments in-line (e.g., Lidar and Air Temperature). This is noted in the folder names. Example images of constructed sensors are in the 'Example Built Sensors' folder.
